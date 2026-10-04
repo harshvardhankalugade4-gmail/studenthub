@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub - Free Student Tools</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .tools {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .tools h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .card button:hover {
+            background: #1d4ed8;
+        }
+.card input {
+    width: 220px;
+    padding: 12px;
+    margin: 8px 5px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.card input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.25);
+}
+
+.card button {
+    margin: 8px 5px;
+}
+        footer {
+            margin-top: 60px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+        }
+        /* Dark Mode */
+body.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+body.dark-mode .card {
+    background: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode p {
+    color: #dddddd;
+}
+
+#themeButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+/* Mobile Responsive Design */
+@media (max-width: 900px) 
+{
+
+    body {
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 25px 15px;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    button {
+        margin: 5px;
+    }
+
+    #themeButton {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <button onclick="toggleTheme()" id="themeButton">
+    🌙 Dark Mode
+</button>
+
+    <header>
+
+        <div class="logo">
+            🎓 StudentHub
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Tools</a>
+            <a href="#">About</a>
+        </nav>
+
+    </header>
+
+
+    <section class="hero">
+
+        <h1>Free Tools for Students</h1>
+
+        <p>
+            Calculate, learn and manage your studies easily.
+        </p>
+
+    </section>
+
+
+    <section class="tools">
+
+        <h2>Student Tools</h2>
+
+        <div class="cards">
+
+<div class="card">
+
+    <h3>📊 Percentage Calculator</h3>
+
+    <p>Enter your marks below:</p>
+
+    <input 
+        type="number" 
+        id="marks" 
+        placeholder="Marks Obtained"
+    >
+
+    <input 
+        type="number" 
+        id="total" 
+        placeholder="Total Marks"
+    >
+
+    <button onclick="calculatePercentage()">
+        Calculate Percentage
+    </button>
+<button onclick="resetPercentage()">
+    🔄 Reset
+</button>
+    <h3 id="percentageResult"></h3>
+
+</div>
+
+
+            <div class="card">
+
+    <h3>🎓 CGPA Calculator</h3>
+
+    <p>Enter your grade points below:</p>
+
+    <input 
+        type="number"
+        id="subject1"
+        placeholder="Subject 1"
+        min="0"
+        max="10"
+        step="0.01"
+    >
+
+    <input 
+        type="number"
+        id="subject2"
+        placeholder="Subject 2"
+        min="0"
+        max="10"
+        step="0.01"
+    >
+
+    <input 
+        type="number"
+        id="subject3"
+        placeholder="Subject 3"
+        min="0"
+        max="10"
+        step="0.01"
+    >
+
+    <input 
+        type="number"
+        id="subject4"
+        placeholder="Subject 4"
+        min="0"
+        max="10"
+        step="0.01"
+    >
+
+    <input 
+        type="number"
+        id="subject5"
+        placeholder="Subject 5"
+        min="0"
+        max="10"
+        step="0.01"
+    >
+
+    <br>
+
+    <button onclick="calculateCGPA()">
+        Calculate CGPA
+    </button>
+
+    <button onclick="resetCGPA()">
+        🔄 Reset
+    </button>
+
+    <h3 id="cgpaResult"></h3>
+
+</div>
+
+
+            <div class="card">
+
+                <h3>📅 Attendance Calculator</h3>
+
+                <p>
+                    Check your attendance percentage.
+                </p>
+
+                <p>Enter your attendance details:</p>
+
+<input
+    type="number"
+    id="attended"
+    placeholder="Classes Attended"
+    min="0"
+>
+
+<input
+    type="number"
+    id="totalClasses"
+    placeholder="Total Classes"
+    min="1"
+>
+
+<br>
+
+<button onclick="calculateAttendance()">
+    Calculate Attendance
+</button>
+
+<button onclick="resetAttendance()">
+    🔄 Reset
+</button>
+
+<h3 id="attendanceResult"></h3>
+
+            </div>
+            <div class="card">
+
+    <h3>📚 Study Timer</h3>
+
+    <p>Set a timer for your study session.</p>
+
+    <input
+        type="number"
+        id="studyMinutes"
+        placeholder="Minutes"
+        min="1"
+    >
+
+    <br><br>
+
+    <button onclick="startStudyTimer()">
+        Start Timer
+    </button>
+
+    <button onclick="resetStudyTimer()">
+        🔄 Reset
+    </button>
+
+    <h3 id="timerResult"></h3>
+
+</div>
+<div class="card">
+
+    <h3>📝 To-Do List</h3>
+
+    <p>Add your study tasks and manage them easily.</p>
+
+    <input
+        type="text"
+        id="taskInput"
+        placeholder="Enter your task"
+    >
+
+    <button onclick="addTask()">
+        Add Task
+    </button>
+
+    <ul id="taskList"></ul>
+
+</div>
+<div class="card">
+
+    <h3>📅 Exam Countdown</h3>
+
+    <p>Set your exam date and track the remaining time.</p>
+
+    <input
+        type="date"
+        id="examDate"
+    >
+
+    <br><br>
+
+    <button onclick="startExamCountdown()">
+        Start Countdown
+    </button>
+
+    <button onclick="resetExamCountdown()">
+        🔄 Reset
+    </button>
+
+    <h3 id="countdownResult"></h3>
+
+</div>
+        </div>
+<div class="card">
+
+    <h3>📝 Study Notes</h3>
+
+    <p>Create and manage your study notes.</p>
+
+    <input
+        type="text"
+        id="noteTitle"
+        placeholder="Note Title"
+    >
+
+    <textarea
+        id="noteContent"
+        placeholder="Write your note here..."
+        rows="5"
+    ></textarea>
+
+    <br><br>
+
+    <button onclick="addNote()">
+        Add Note
+    </button>
+
+    <div id="notesList"></div>
+
+</div>
+    </section>
+
+
+    <footer>
+
+        <p>© 2026 StudentHub | Made for Students</p>
+
+    </footer>
+<script>
+
+function calculatePercentage() {
+
+    let marks = document.getElementById("marks").value;
+    let total = document.getElementById("total").value;
+
+    if (marks === "" || total === "") {
+        alert("Please enter both marks.");
+        return;
+    }
+
+    if (total <= 0 || marks < 0 || marks > total) {
+        alert("Please enter valid marks.");
+        return;
+    }
+
+    let percentage = (marks / total) * 100;
+
+    document.getElementById("percentageResult").innerText =
+        "Your Percentage: " + percentage.toFixed(2) + "%";
+}
+function resetPercentage() {
+
+    document.getElementById("marks").value = "";
+    document.getElementById("total").value = "";
+
+    document.getElementById("percentageResult").innerText = "";
+
+}
+function calculateCGPA() {
+
+    let subjects = [
+        document.getElementById("subject1").value,
+        document.getElementById("subject2").value,
+        document.getElementById("subject3").value,
+        document.getElementById("subject4").value,
+        document.getElementById("subject5").value
+    ];
+
+    for (let grade of subjects) {
+        if (grade === "" || grade < 0 || grade > 10) {
+            alert("Please enter valid grade points between 0 and 10.");
+            return;
+        }
+    }
+
+    let total = 0;
+
+    for (let grade of subjects) {
+        total += Number(grade);
+    }
+
+    let cgpa = total / subjects.length;
+
+    document.getElementById("cgpaResult").innerText =
+        "Your CGPA: " + cgpa.toFixed(2);
+}
+
+
+function resetCGPA() {
+
+    document.getElementById("subject1").value = "";
+    document.getElementById("subject2").value = "";
+    document.getElementById("subject3").value = "";
+    document.getElementById("subject4").value = "";
+    document.getElementById("subject5").value = "";
+
+    document.getElementById("cgpaResult").innerText = "";
+}
+function calculateAttendance() {
+    let attended = document.getElementById("attended").value;
+    let totalClasses = document.getElementById("totalClasses").value;
+
+    if (
+        attended === "" ||
+        totalClasses === "" ||
+        totalClasses <= 0 ||
+        attended < 0 ||
+        attended > totalClasses
+    ) {
+        alert("Please enter valid attendance details.");
+        return;
+    }
+
+    let attendance = (attended / totalClasses) * 100;
+
+    document.getElementById("attendanceResult").innerText =
+        "Your Attendance: " + attendance.toFixed(2) + "%";
+}
+
+function resetAttendance() 
+{
+    document.getElementById("attended").value = "";
+    document.getElementById("totalClasses").value = "";
+
+    document.getElementById("attendanceResult").innerText = "";
+}
+let studyTimer;
+let remainingSeconds = 0;
+
+function startStudyTimer() {
+    let minutes = document.getElementById("studyMinutes").value;
+
+    if (minutes === "" || minutes <= 0) {
+        alert("Please enter study time in minutes.");
+        return;
+    }
+
+    remainingSeconds = Number(minutes) * 60;
+
+    clearInterval(studyTimer);
+
+    studyTimer = setInterval(function () {
+
+        let mins = Math.floor(remainingSeconds / 60);
+        let secs = remainingSeconds % 60;
+
+        document.getElementById("timerResult").innerText =
+            "Time Remaining: " +
+            mins + ":" + String(secs).padStart(2, "0");
+
+        remainingSeconds--;
+
+        if (remainingSeconds < 0) {
+            clearInterval(studyTimer);
+
+            document.getElementById("timerResult").innerText =
+                "🎉 Study Session Completed!";
+        }
+
+    }, 1000);
+}
+
+function resetStudyTimer() {
+    clearInterval(studyTimer);
+
+    document.getElementById("studyMinutes").value = "";
+
+    document.getElementById("timerResult").innerText = "";
+}
+function addTask() {
+    let taskInput = document.getElementById("taskInput");
+    let taskText = taskInput.value.trim();
+
+    if (taskText === "") {
+        alert("Please enter a task.");
+        return;
+    }
+
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+        <span>${taskText}</span>
+        <button onclick="completeTask(this)">✅</button>
+        <button onclick="deleteTask(this)">🗑️</button>
+    `;
+
+    document.getElementById("taskList").appendChild(li);
+
+    taskInput.value = "";
+}
+
+function completeTask(button) {
+    let task = button.parentElement.querySelector("span");
+
+    task.style.textDecoration = "line-through";
+    task.style.opacity = "0.5";
+}
+
+function deleteTask(button) {
+    button.parentElement.remove();
+}
+let examCountdown;
+
+function startExamCountdown() {
+    let examDate = document.getElementById("examDate").value;
+
+    if (examDate === "") {
+        alert("Please select your exam date.");
+        return;
+    }
+
+    let targetDate = new Date(examDate + "T00:00:00").getTime();
+
+    clearInterval(examCountdown);
+
+    examCountdown = setInterval(function () {
+
+        let now = new Date().getTime();
+        let difference = targetDate - now;
+
+        if (difference <= 0) {
+            clearInterval(examCountdown);
+
+            document.getElementById("countdownResult").innerText =
+                "🎉 Exam Day is Here!";
+
+            return;
+        }
+
+        let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        let hours = Math.floor(
+            (difference / (1000 * 60 * 60)) % 24
+        );
+        let minutes = Math.floor(
+            (difference / (1000 * 60)) % 60
+        );
+        let seconds = Math.floor(
+            (difference / 1000) % 60
+        );
+
+        document.getElementById("countdownResult").innerText =
+            days + " Days " +
+            hours + " Hours " +
+            minutes + " Minutes " +
+            seconds + " Seconds";
+
+    }, 1000);
+}
+
+function resetExamCountdown() {
+    clearInterval(examCountdown);
+
+    document.getElementById("examDate").value = "";
+
+    document.getElementById("countdownResult").innerText = "";
+}
+let notes = JSON.parse(localStorage.getItem("studentHubNotes")) || [];
+
+function displayNotes() {
+    let notesList = document.getElementById("notesList");
+
+    notesList.innerHTML = "";
+
+    notes.forEach((note, index) => {
+        let noteDiv = document.createElement("div");
+
+        noteDiv.innerHTML = `
+            <h3>${note.title}</h3>
+            <p>${note.content}</p>
+            <button onclick="deleteNote(${index})">🗑️ Delete</button>
+        `;
+
+        notesList.appendChild(noteDiv);
+    });
+}
+
+function addNote() {
+    let title = document.getElementById("noteTitle").value;
+    let content = document.getElementById("noteContent").value;
+
+    if (title === "" || content === "") {
+        alert("Please enter both title and note.");
+        return;
+    }
+
+    notes.push({
+        title: title,
+        content: content
+    });
+
+    localStorage.setItem("studentHubNotes", JSON.stringify(notes));
+
+    document.getElementById("noteTitle").value = "";
+    document.getElementById("noteContent").value = "";
+
+    displayNotes();
+}
+
+function deleteNote(index) {
+    notes.splice(index, 1);
+
+    localStorage.setItem("studentHubNotes", JSON.stringify(notes));
+
+    displayNotes();
+}
+
+displayNotes();
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+
+    let button = document.getElementById("themeButton");
+
+    if (document.body.classList.contains("dark-mode")) {
+        button.innerText = "☀️ Light Mode";
+    } else {
+        button.innerText = "🌙 Dark Mode";
+    }
+}
+</script>
+</body>
+</html>
